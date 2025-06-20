@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Captain Marvel (2019) | ZifahsFilm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(120deg, #001f3f, #003366, #1c1c1c);
+      flex-direction: column;
+      color: #fff;
+    }
+
+    .hero {
+      width: 100%;
+    }
+
+    /* NAVBAR — DO NOT CHANGE */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: black;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      margin-bottom: 60px;
+    }
+
+    .logo img {
+      width: 220px;
+      height: auto;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff4444;
+    }
+
+    @media (max-width: 768px) {
+      .logo img {
+        width: 400px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: black;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+  .menu-toggle {
+      display: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: black;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+    
+    }
+
+    .movie-containerall {
+      width: 90%;
+      max-width: 800px;
+      margin: auto;
+      background: linear-gradient(to right, #0b0c10, #1f2833, #0b0c10);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .movie-title {
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #ffcc00, #ffffff, #ff4444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .movie-poster {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      margin: 20px auto;
+      display: block;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+    }
+
+    h1 {
+      color: #ffcc00;
+      text-align: center;
+    }
+
+    h1:hover {
+      color: #ffd700;
+    }
+
+    .movie-details {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    label {
+      font-weight: 600;
+      color: #ffcc00;
+    }
+
+    .screenshots {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .screenshots img {
+      width: 280px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .screenshots img:hover {
+      transform: scale(1.05);
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    ol {
+      list-style: none;
+      padding: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 250px;
+      margin: 15px 0;
+      background: linear-gradient(45deg, #ffcc00, #ff4444);
+      color: #000;
+      padding: 12px;
+      font-size: 17px;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn:hover {
+      background: linear-gradient(45deg, #ff4444, #cc0000);
+      transform: translateY(-4px);
+    }
+
+    hr {
+      border: 1px solid #ffcc00;
+      margin: 30px 0;
+    }
+
+    .trialer {
+      text-align: center;
+    }
+
+    iframe {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    /* COPYRIGHT — DO NOT CHANGE */
+    .copyright-container {
+      background-color: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border: 2px solid red;
+      margin-top: 100px;
+    }
+
+    .copyright-container h2 {
+      color: red;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <!-- NAVBAR - UNCHANGED -->
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo11.png" alt="ZifahsFilm Logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="zifahflim.html">Home</a></li>
+        <li><a href="catagories.html">Categories</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">How to download?</a></li>
+      </ul>
+      <div class="menu-toggle">&#9776;</div>
+    </nav>
+
+    <div class="movie-containerall">
+      <div class="movie-title">Captain Marvel (2019)</div>
+      <img class="movie-poster" src="movies-poster/captain marvel .jpg" alt="Captain Marvel Poster">
+      <hr>
+      <div class="movie-details">
+        <h1>Details</h1>
+        <p><label>Directed by :</label> Anna Boden, Ryan Fleck</p>
+        <p><label>Written by :</label> Anna Boden, Ryan Fleck, Geneva Robertson-Dworet</p>
+        <p><label>Language :</label> (dual) English & Hindi</p>
+        <p><label>Quality :</label> 480p | 720p | 1080p</p>
+        <p><label>Released Date :</label> March 8, 2019</p>
+        <p><label>Cast :</label> Brie Larson, Samuel L. Jackson, Ben Mendelsohn, Jude Law, Annette Bening, Clark Gregg</p>
+        <p><label>Budget :</label> $152 million</p>
+        <p><label>Box Office :</label> $1.13 billion</p>
+        <p><label>Story :</label> Set in 1995, Captain Marvel follows Carol Danvers, a former U.S. Air Force pilot who becomes one of the universe's most powerful heroes as she's caught in the middle of a galactic war between two alien races.</p>
+      </div>
+      <hr>
+      <h1>Trailer</h1>
+      <div class="trialer">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Z1BCujX3pw8" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <hr>
+      <h1>Screen-Shots</h1>
+      <div class="screenshots">
+        <img src="moviesscreenshot/captain marvel ss1.png" alt="Screenshot 1">
+        <img src="moviesscreenshot/captain marvel ss2.png" alt="Screenshot 2">
+        <img src="moviesscreenshot/captain marvel ss3.png" alt="Screenshot 3">
+        <img src="moviesscreenshot/captain marvel ss4.png" alt="Screenshot 4">
+      </div>
+      <hr>
+      <h1>Download Link</h1>
+      <div class="container">
+        <ol>
+          <li><a href="480p - page.html" class="btn">480p Links [400MB]</a></li>
+          <li><a href="https://hubcloud.one/drive/t7j7ricrcciikry" class="btn">720p Links [1.17GB]</a></li>
+          <li><a href="https://hubcloud.one/drive/wlcdrb47l97kplr" class="btn">1080p 10Bit HEVC [2.53GB]</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- COPYRIGHT - UNCHANGED -->
+    <div class="copyright-container">
+      <h2>Copyright Notice</h2>
+      <p>© 2025 <strong>ZifahsFilm</strong>. All Rights Reserved.</p>
+      <p>
+        All content on this website is the property of <strong>ZifahsFilm</strong> or its content providers. Unauthorized reproduction or distribution is prohibited.
+      </p>
+      <p>
+        📧 <strong>Email:</strong> <a href="mailto:zifahsacc@gmail.com">zifahsacc@gmail.com</a><br>
+        📞 <strong>Phone:</strong> +7228878288
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    ScrollReveal().reveal('.movie-title', { delay: 200, origin: 'bottom', distance: '30px', reset:true });
+    ScrollReveal().reveal('.movie-poster', { delay: 300, origin: 'bottom', distance: '40px', reset:true });
+    ScrollReveal().reveal('.movie-details', { delay: 350, origin: 'bottom', distance: '60px', reset:true });
+    ScrollReveal().reveal('.trialer', { delay: 400, origin: 'bottom', distance: '40px', reset:true });
+    ScrollReveal().reveal('.screenshots img', { interval: 200, origin: 'bottom', distance: '30px', reset:true });
+    ScrollReveal().reveal('.btn', { interval: 200, origin: 'bottom', distance: '30px', reset:true });
+    ScrollReveal().reveal('.copyright-container', { delay: 500, origin: 'bottom', distance: '40px', reset:true });
+  </script>
+</body>
+</html>

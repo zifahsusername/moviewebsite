@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Black Panther (2018) | ZifahsFilm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background-color: #0a0a0a;
+      flex-direction: column;
+    }
+
+    .hero {
+      width: 100%;
+      height: auto;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: black;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      margin-bottom: 60px;
+    }
+
+    .logo img {
+      width: 220px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ffcc00;
+    }
+
+@media (max-width: 768px) {
+      .logo img {
+        width: 400px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
+    .menu-toggle {
+      display: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: black;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+    
+    }
+   
+
+    .movie-containerall {
+      width: 90%;
+      max-width: 800px;
+      margin: auto;
+      background: linear-gradient(135deg, #1f1f1f, #111);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+    }
+
+    .movie-title {
+      font-size: 42px;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: #ffcc00;
+      text-shadow: 2px 2px 8px rgba(255, 204, 0, 0.4);
+    }
+
+    .movie-poster {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto 20px auto;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      color: #ffcc00;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .movie-details {
+      background-color: #212121;
+      color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    .screenshots {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .screenshots img {
+      width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .screenshots img:hover {
+      transform: scale(1.05);
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 250px;
+      background: linear-gradient(45deg, #ffcc00, #ff6f00);
+      color: black;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin: 10px;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 8px rgba(255, 193, 7, 0.4);
+    }
+
+    .btn:hover {
+      background: linear-gradient(45deg, #ffa000, #f57c00);
+      transform: translateY(-4px);
+    }
+
+    hr {
+      border: 1px solid #ffcc00;
+      margin: 20px 0;
+    }
+
+    .copyright-container {
+      background-color: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-top: 2px solid red;
+      margin-top: 60px;
+    }
+
+    .copyright-container h2 {
+      color: red;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+
+      .search-bar input {
+        width: 100%;
+      }
+      .trialer{
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <nav class="navbar">
+      <div class="logo"><img src="logo11.png" alt="ZifahsFilm Logo"></div>
+     
+      <ul class="nav-links">
+        <li><a href="zifahflim.html">Home</a></li>
+        <li><a href="catagories.html">Categories</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">How to download?</a></li>
+      </ul>
+      <div class="menu-toggle">&#9776;</div>
+    </nav>
+
+    <div class="movie-containerall">
+      <div class="movie-title">Black Panther (2018)</div>
+      <img class="movie-poster" src="movies-poster/black panther.jpg" alt="Black Panther Poster" />
+      <hr>
+      <div class="movie-details">
+        <h1>Details</h1>
+        <p><label>Directed by:</label> Ryan Coogler</p>
+        <p><label>Written by:</label> Ryan Coogler, Joe Robert Cole</p>
+        <p><label>Language:</label> (Dual Audio) English & Hindi</p>
+        <p><label>Quality:</label> 480p | 720p | 1080p</p>
+        <p><label>Released Date:</label> February 16, 2018</p>
+        <p><label>Cast:</label> Chadwick Boseman, Michael B. Jordan, Lupita Nyong’o, Danai Gurira, Martin Freeman, Daniel Kaluuya</p>
+        <p><label>Budget:</label> $200 million</p>
+        <p><label>Box Office:</label> $1.346 billion</p>
+        <p><label>Story:</label> After the death of his father, T'Challa returns home to the African nation of Wakanda to take his rightful place as king. But when a powerful enemy reappears, T'Challa's mettle as king—and as Black Panther—is tested when he's drawn into a formidable conflict that puts the fate of Wakanda and the world at risk.</p>
+      </div>
+      <hr>
+      <h1>Trailer</h1>
+      <div class="trialer" style="text-align:center;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/xjDjIWPwcPU" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <hr>
+      <h1>Screenshots</h1>
+      <div class="screenshots">
+        <img src="moviesscreenshot/black panther ss1.png" alt="Screenshot 1">
+        <img src="moviesscreenshot/black panther ss2.png" alt="Screenshot 2">
+        <img src="moviesscreenshot/black panther ss3.png" alt="Screenshot 3">
+        <img src="moviesscreenshot/black panther ss4.png" alt="Screenshot 4">
+        
+      </div>
+      <hr>
+      <h1>Download Links</h1>
+      <div class="container">
+        <a href="480p - page.html" class="btn">480p [500MB]</a>
+        <a href="https://hubcloud.one/drive/wuawj8f8hjtysoy" class="btn">720p [1.25GB]</a>
+        <a href="https://hubcloud.one/drive/x71uf87ompeqxp1" class="btn">1080p [2.9GB]</a>
+      </div>
+    </div>
+
+    <div class="copyright-container">
+      <h2>Copyright Notice</h2>
+      <p>© 2025 <strong>ZifahsFilm</strong>. All Rights Reserved.</p>
+      <p>All content on this website, including but not limited to text, images, videos, design, and logos, is the property of <strong>ZifahsFilm</strong> or its respective content providers and is protected by copyright laws. Unauthorized reproduction, distribution, or use of any material from this website without explicit permission is strictly prohibited.</p>
+      <p>If you believe that your copyrighted work has been used on this website without authorization, please contact us at:</p>
+      <p>📧 <strong>Email:</strong> <a href="mailto:zifahsacc@gmail.com">zifahsacc@gmail.com</a><br>📞 <strong>Phone:</strong> +7228878288</p>
+      <p>We take copyright infringement seriously and will promptly address any valid claims in accordance with applicable laws.</p>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    ScrollReveal().reveal('.movie-title', { delay: 200, origin: 'top', distance: '20px', reset: true });
+    ScrollReveal().reveal('.movie-poster', { delay: 300, origin: 'bottom', distance: '40px', reset: true });
+    ScrollReveal().reveal('.movie-details', { delay: 350, origin: 'bottom', distance: '60px', reset: true });
+    ScrollReveal().reveal('.trialer', { delay: 400, origin: 'bottom', distance: '40px', reset: true });
+    ScrollReveal().reveal('.screenshots img', { interval: 200, origin: 'bottom', distance: '30px', reset: true });
+    ScrollReveal().reveal('.btn', { interval: 200, origin: 'bottom', distance: '30px', reset: true });
+    ScrollReveal().reveal('.copyright-container', { delay: 500, origin: 'bottom', distance: '40px', reset: true });
+  </script>
+</body>
+</html>

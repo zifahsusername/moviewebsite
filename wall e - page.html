@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WALL·E (2008)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      display: flex;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background-color: #141414;
+      flex-direction: column;
+    }
+    .hero { width: 100%; background-position: center; background-size: cover; }
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 40px; background-color: black;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      margin-bottom: 60px;
+    }
+    .logo { display: flex; align-items: center; }
+    .logo img {
+      width: 220px; height: auto; margin-right: 10px;
+      object-fit: contain;
+    }
+    .nav-links {
+      list-style: none; display: flex; gap: 30px; padding: 0;
+    }
+    .nav-links li { display: inline; }
+    .nav-links a {
+      text-decoration: none; color: white; font-size: 1.2rem;
+      transition: 0.3s;
+    }
+    .nav-links a:hover { color: #fa0202; }
+    .search-bar {
+      display: flex; align-items: center;
+      background-color: #222; border-radius: 50px;
+      padding: 5px; overflow: hidden; border: 1px solid #444;
+    }
+    .search-bar input {
+      border: none; outline: none;
+      padding: 10px 15px; background: transparent;
+      color: white; font-size: 1rem; width: 200px;
+    }
+    .search-bar button {
+      border: none; background: transparent;
+      padding: 10px; cursor: pointer;
+    }
+    .search-bar button svg {
+      width: 20px; height: 20px; fill: #E50914;
+      transition: 0.3s;
+    }
+    .search-bar button:hover svg { fill: #B30000; }
+    .menu-toggle { display: none; font-size: 2rem; cursor: pointer; color: white; }
+    @media (max-width: 768px) {
+      .logo img { width: 400px; margin-right: 20px; }
+      .navbar { flex-direction: column; gap: 15px; }
+      .nav-links {
+        display: none; flex-direction: column;
+        background: black; position: absolute;
+        top: 60px; left: 0; width: 100%;
+        padding: 10px; text-align: center;
+      }
+      .nav-links.active { display: flex; }
+      .menu-toggle { display: block; }
+      .search-bar, .search-bar input { width: 100%; }
+    }
+
+    .movie-containerall {
+      width: 90%; max-width: 800px; margin: auto;
+      background: #1e1e1e; border-radius: 10px;
+      padding: 20px; box-shadow: 0 4px 10px rgba(255, 174, 0, 0.3);
+    }
+
+    .movie-title {
+      font-size: 50px; font-weight: 900; text-align: center;
+      text-transform: uppercase; margin-bottom: 10px;
+      letter-spacing: 2px; font-family: 'Anton', sans-serif;
+      background: linear-gradient(to right, #ff9a00, #ff6b00);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 8px rgba(255, 128, 0, 0.3);
+    }
+
+    .movie-poster {
+      width: 100%; max-width: 500px; border-radius: 5px;
+      margin: 0 auto 20px; display: block;
+    }
+
+    .trialer {
+      text-align: center; margin-top: 20px; display: flex; justify-content: center;
+    }
+
+    h1 {
+      color: #ffae00; font-family: 'Poppins', sans-serif;
+      font-size: 32px; text-align: center; text-transform: uppercase;
+      text-shadow: 1px 1px 6px rgba(255, 145, 0, 0.3);
+    }
+
+    h1:hover { color: #ffaa00; }
+
+    .movie-details {
+      color: #f8f8f8; font-family: 'Roboto', sans-serif;
+      font-size: 17px; background-color: #1a1a1a;
+      padding: 20px; border-radius: 10px;
+      box-shadow: inset 0 0 8px rgba(255, 170, 0, 0.2);
+    }
+
+    label {
+      text-transform: uppercase;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600; color: #ffa500;
+    }
+
+    .screenshots {
+      display: flex; justify-content: center;
+      gap: 30px; flex-wrap: wrap;
+    }
+
+    .screenshots img {
+      width: 300px; height: auto; border-radius: 3px;
+      box-shadow: 0 4px 8px rgba(48, 19, 19, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .screenshots img:hover { transform: scale(1.1); }
+
+    .container {
+      margin-top: 50px; text-align: center;
+    }
+
+    ol { list-style-type: none; padding: 0; }
+    li { margin: 30px 0; }
+
+    .btn {
+      display: inline-block; width: 250px;
+      background: linear-gradient(45deg, #ff8c00, #2b2b2b);
+      color: #f0f0f0; font-size: 18px; font-weight: bold;
+      padding: 12px 20px; border-radius: 10px;
+      text-decoration: none; transition: all 0.25s ease-in-out;
+      box-shadow: 0 4px 8px rgba(255, 136, 0, 0.4);
+      border: 2px solid #ff9500; letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .btn:hover {
+      background: linear-gradient(45deg, #cc7000, #000000);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 6px 14px rgba(255, 145, 0, 0.7);
+    }
+
+    .copyright-container {
+      background-color: #111; color: #fff;
+      padding: 20px; border-radius: 1px;
+      font-family: Arial, sans-serif; text-align: center;
+      border: 2px solid red; margin-top: 100px;
+    }
+
+    .copyright-container h2 {
+      color: red; margin-bottom: 10px; font-size: 24px;
+    }
+
+    .copyright-container a {
+      color: red; text-decoration: none; font-weight: bold;
+    }
+
+    .copyright-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo11.png" alt="ZifahsFilm Logo">
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search movies..." id="searchInput">
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 17 9.5 6.5 6.5 0 1 0 9.5 16a6.471 6.471 0 0 0 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zM9.5 14A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/>
+          </svg>
+        </button>
+      </div>
+      <ul class="nav-links">
+        <li><a href="zifahflim.html">Home</a></li>
+        <li><a href="catagories.html">Categories</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">How to download?</a></li>
+      </ul>
+      <div class="menu-toggle">&#9776;</div>
+    </nav>
+
+    <div class="movie-containerall">
+      <div class="movie-title">WALL·E (2008)</div>
+      <img class="movie-poster" src="movies-poster/wall e.jpg" alt="WALL·E Poster">
+
+      <hr style="border: 2px solid orange; width: 90%;">
+      <div class="movie-details">
+        <h1>Details</h1>
+        <p><label>Directed by:</label> Andrew Stanton</p>
+        <p><label>Written by:</label> Andrew Stanton, Jim Reardon</p>
+        <p><label>Language:</label> English & Hindi (Dual Audio)</p>
+        <p><label>Quality:</label> 480p | 720p | 1080p</p>
+        <p><label>Release Date:</label> June 27, 2008</p>
+        <p><label>Cast:</label> Ben Burtt, Elissa Knight, Jeff Garlin, Fred Willard</p>
+        <p><label>Budget:</label> $180 million</p>
+        <p><label>Box Office:</label> $521.3 million</p>
+        <p><label>Story:</label> In a future where Earth is abandoned and covered in trash, a small waste-collecting robot named WALL·E embarks on a journey that could decide the fate of mankind and bring love into his lonely world.</p>
+      </div>
+
+      <hr style="border: 2px solid orange; width: 90%;">
+      <h1>Trailer</h1>
+      <div class="trialer">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/CZ1CATNbXg0" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <hr style="border: 2px solid orange; width: 90%;">
+      <h1>Screen-Shots</h1>
+      <div class="screenshots">
+        <img src="moviesscreenshot/wall e ss1.png" alt="Screenshot 1">
+        <img src="moviesscreenshot/wall e ss2.png" alt="Screenshot 2">
+        <img src="moviesscreenshot/wall e ss3.png" alt="Screenshot 3">
+         <img src="moviesscreenshot/wall e ss4.png" alt="Screenshot 4">
+      </div>
+
+      <hr style="border: 2px solid orange; width: 90%; margin-top: 20px;">
+      <h1>Download Link</h1>
+      <div class="container">
+        <ol>
+          <li><a href="480p - page.html" class="btn">480p [500MB]</a></li>
+          <li><a href="https://oneclick-dl.pages.dev/?url=https://video-downloads.googleusercontent.com/ADGPM2ks3YMEFXmcs2ytPF5aRs22QFjPk7cWwErado2dq6Y3pkiU8-jhp8pCjoez-4zhDkl0kTAJHduRccM2_-QdHXco4R8XU1IuVSnB0SDrFd6rb_JhbNO-68KYs1d_lkug--_yGc2ywmzpzUYh2UUoZCDf4omFrxfCgVzOulYQVbNnZQ5dnTvtgEIuJ3tV6iwh_JytzRx3V1d8XvIpwGDVgiyUqeWbVzUDGia1N6EUhVCrkaE7SRwifHS-g_2seZ-B8XI5eyyxNBapprsML_Mu4QMSqkQ-hhYiNOMG-TDt4h6yhqLTIvq7sVo8dWUZ-1G-AZUiHb8d2y_tQav7Cwt8nFb_n1yI0LYc-Xf5NZuJcBy7yMKLa8y7g4PwTgGTemQzhM-Zly4uFLl41nN0r6nAy4qixFT4UnQOS8Nz-ZcOsrNeCU3ozjyRiL5zN99LeqIeH_0PwRw1w_68uJq3p4SBTy7WZgidOOFdxUj5l5dFAV7e7Iq2UZfwbaVIMv-w3GCe3bDtxm8Q_YkIoyoyX79ER98Ajs3F974r56uhuwVe3A73BkttMlyXQI0ObS_xch5Qy81C3BK7BSmVr4BN5SA95yeoKy5iYdJA82NgkMhl81PWut0pqfqrNhgLcuBmCKjnLWhJLqxhev8eSonpMnbR99tYgS5YKyLCX2AwCJpgIqfPeAVle6-M54nJYXkO_y6wcu_3-4NgWdtSbWenLuvB8PnNXLdBSp_MpP6RBWxwKF_y4DKr44JXPGJZcEQjzpuhFA51IGsln01zryjOAyuyQWHchTS0VR-6nZ-pqF-OzdICMwDHR56ws3p4PiSS3Y-SK8kwvVws9CYl9nwqU35_DakafEphLlFuU-Ur3GCyahetwRlQXAT9EOIrYHGLYYEReCOdEAkFjS0bdX4lydg4f_I0hn1HXomxFUnVK6DzezdL4U0sYgy6HN7Z8F-auA4Ws8cidtTqwvI0OZnu77eOr7vSH0cFCtfE4I04sXGqB2EJnS8Bryqt8sECbp4Ptk49EpQjxCgy-5TRXSUXU-zX7HpDlENLv2eDpxPZXuOXng4MydPFSs4" class="btn">720p [1GB]</a></li>
+          <li><a href="https://new8.gdflix.dad/xfile/UuVyoXWR7nJuNU1zae2s" class="btn">1080p [2.18GB]</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="copyright-container">
+      <h2>Copyright Notice</h2>
+      <p>© 2025 <strong>ZifahsFilm</strong>. All Rights Reserved.</p>
+      <p>All content on this website... protected by copyright laws.</p>
+      <p>If you believe... please contact us at:</p>
+      <p>📧 <strong>Email:</strong> <a href="mailto:zifahsacc@gmail.com">zifahsacc@gmail.com</a><br>📞 <strong>Phone:</strong> +7228878288</p>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    ScrollReveal().reveal('.movie-title', { delay: 200, origin: 'bottom', distance: '30px', reset:true });
+    ScrollReveal().reveal('.movie-poster', { delay: 300, origin: 'bottom', distance: '40px', reset:true });
+    ScrollReveal().reveal('.movie-details', { delay: 350, origin: 'bottom', distance: '60px', reset:true });
+    ScrollReveal().reveal('.trialer', { delay: 400, origin: 'bottom', distance: '40px', reset:true });
+    ScrollReveal().reveal('.screenshots img', { interval: 200, origin: 'bottom', distance: '30px', reset:true });
+    ScrollReveal().reveal('.btn', { interval: 200, origin: 'bottom', distance: '30px', reset:true });
+    ScrollReveal().reveal('.copyright-container', { delay: 500, origin: 'bottom', distance: '40px', reset:true });
+    ScrollReveal().reveal('.logo', {
+      distance: '0px', duration: 1200, opacity: 0, delay: 0, reset:true,
+    });
+  </script>
+</body>
+</html>

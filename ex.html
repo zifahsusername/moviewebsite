@@ -1,0 +1,80 @@
+<html>
+    <style>
+        .container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+.movie-card {
+  background-color: #111;
+  width: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(255,255,255,0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.movie-info {
+  padding: 10px;
+}
+
+.movie-info h3 {
+  font-size: 16px;
+  margin: 5px 0;
+  color: aliceblue;
+}
+
+.movie-info p {
+  font-size: 15px;
+  color: #aaa;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Category-specific styling */
+.container[data-category="1"] .movie-card {
+  box-shadow: 0 5px 8px rgba(255, 0, 0, 0.6); /* Red shadow for category 1 */
+}
+
+.container[data-category="2"] .movie-card {
+  box-shadow: 0 5px 8px rgba(0, 0, 255, 0.6); /* Blue shadow for category 2 */
+}
+
+        </style>
+    <body>
+        <div class="container" data-category="1">
+  <div class="movie-card">
+    <img src="movie1.jpg" alt="Movie 1" />
+    <div class="movie-info">
+      <h3>Movie Title 1</h3>
+      <p>Action</p>
+    </div>
+  </div>
+  <!-- more cards -->
+</div>
+
+<div class="container" data-category="2">
+  <div class="movie-card">
+    <img src="movie2.jpg" alt="Movie 2" />
+    <div class="movie-info">
+      <h3>Movie Title 2</h3>
+      <p>Drama</p>
+    </div>
+  </div>
+  <!-- more cards -->
+</div>
+
+    </body>
+</html>

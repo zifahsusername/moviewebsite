@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Avengers: Age of Ultron (2015) | ZifahsFilm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <style>
+    /* Existing Styles from Moana 2 Page - No changes here */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background-color: #141414;
+      flex-direction: column;
+    }
+
+    .hero {
+      width: 100%;
+      height: auto;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: black;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      margin-bottom: 60px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 220px;
+      height: auto;
+      margin-right: 10px;
+      object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+      .logo img {
+        width: 400px;
+        margin-right: 20px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #fa0202;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: #222;
+      border-radius: 50px;
+      padding: 5px;
+      overflow: hidden;
+      border: 1px solid #444;
+    }
+
+    .search-bar input {
+      border: none;
+      outline: none;
+      padding: 10px 15px;
+      background: transparent;
+      color: white;
+      font-size: 1rem;
+      width: 200px;
+    }
+
+    .search-bar button {
+      border: none;
+      background: transparent;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .search-bar button svg {
+      width: 20px;
+      height: 20px;
+      fill: #E50914;
+      transition: 0.3s;
+    }
+
+    .search-bar button:hover svg {
+      fill: #B30000;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: black;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .search-bar {
+        width: 100%;
+      }
+
+      .search-bar input {
+        width: 100%;
+      }
+
+      .trialer {
+        display: flex;
+      }
+    }
+
+    .movie-containerall {
+      width: 90%;
+      max-width: 800px;
+      margin: auto;
+      background: linear-gradient(135deg, #e0f7fa, #ffffff);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 150, 136, 0.3);
+    }
+
+    .movie-title {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      background: linear-gradient(to right, #ff0000, #7b1fa2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: 'Pacifico', cursive;
+      text-shadow: 2px 2px 4px rgba(124, 31, 162, 0.4);
+    }
+
+    .movie-poster {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .trialer {
+      text-align: center;
+    }
+
+    h1 {
+      color: #7b1fa2;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+    }
+
+    h1:hover {
+      color: #ff1744;
+    }
+
+    .movie-details {
+      color: #4e342e;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      background-color: #fff3e0;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    label {
+      text-transform: uppercase;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #6a1b9a;
+    }
+
+    .screenshots {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .screenshots img {
+      width: 300px;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0, 105, 92, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .screenshots img:hover {
+      transform: scale(1.08);
+    }
+
+    .container {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    ol {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 30px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 250px;
+      background: linear-gradient(45deg, #d500f9, #7c4dff);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 8px rgba(103, 58, 183, 0.4);
+      border: 2px solid #7e57c2;
+    }
+
+    .btn:hover {
+      background: linear-gradient(45deg, #6a1b9a, #651fff);
+      transform: translateY(-4px);
+      box-shadow: 0 6px 12px rgba(81, 45, 168, 0.6);
+    }
+
+    .copyright-container {
+      background-color: #111;
+      color: #fff;
+      padding: 20px;
+      border-radius: 1px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      border: 2px solid red;
+      margin-top: 100px;
+    }
+
+    .copyright-container h2 {
+      color: red;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    hr {
+      border: 2px solid rgb(18, 137, 185);
+      width: 90%;
+      margin-left: 35px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo11.png" alt="ZifahsFilm Logo">
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search movies..." id="searchInput">
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 17 9.5 
+            6.5 6.5 0 1 0 9.5 16a6.471 6.471 0 0 0 
+            4.23-1.57l.27.28v.79l5 4.99L20.49 
+            19l-4.99-5zM9.5 14A4.5 4.5 0 1 1 
+            14 9.5 4.5 4.5 0 0 1 9.5 14z"/>
+          </svg>
+        </button>
+      </div>
+      <ul class="nav-links">
+        <li><a href="zifahflim.html">Home</a></li>
+        <li><a href="catagories.html">Categories</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">How to download?</a></li>
+      </ul>
+      <div class="menu-toggle">&#9776;</div>
+    </nav>
+
+    <div class="movie-containerall">
+      <div class="movie-title">Avengers: Age of Ultron (2015)</div>
+      <img class="movie-poster" src="movies-poster/avengers2.jpg" alt="Avengers: Age of Ultron Poster">
+      <hr>
+      <div class="movie-details">
+        <h1>Details</h1>
+        <p><label>Directed by :</label> Joss Whedon</p>
+        <p><label>Written by :</label> Joss Whedon</p>
+        <p><label>Language :</label> (dual) English & Hindi</p>
+        <p><label>Quality :</label> 480p | 720p | 1080p</p>
+        <p><label>Released Date :</label> May 1, 2015</p>
+        <p><label>Cast :</label> Robert Downey Jr., Chris Hemsworth, Mark Ruffalo, Chris Evans, Scarlett Johansson, Jeremy Renner, James Spader</p>
+        <p><label>Budget :</label> $365 million</p>
+        <p><label>Box Office :</label> $1.403 billion</p>
+        <p><label>Story :</label> When Tony Stark and Bruce Banner try to jump-start a dormant peacekeeping program, things go awry and the Avengers are put to the ultimate test as the fate of the planet hangs in the balance. Ultron emerges, a terrifying technological villain bent on human extinction. It's up to Earth's mightiest heroes to stop him.</p>
+      </div>
+      <hr>
+      <h1>Trailer</h1>
+      <div class="trialer">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/tmeOjFno6Do" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <hr>
+      <h1>Screen-Shots</h1>
+      <div class="screenshots">
+        <img src="moviesscreenshot/avengers age of ultron ss1.jpg" alt="Screenshot 1">
+        <img src="moviesscreenshot/avengers age of ultron ss2.jpg" alt="Screenshot 2">
+        <img src="moviesscreenshot/avengers age of ultron ss3.jpg" alt="Screenshot 3">
+        <img src="moviesscreenshot/avengers age of ultron ss4.jpg" alt="Screenshot 4">
+      </div>
+      <hr>
+      <h1>Download Link</h1>
+      <div class="container">
+        <ol>
+          <li><a href="480p - page.html" class="btn">480p Links [550MB]</a></li>
+          <li><a href="https://hubcloud.one/drive/ss1rsyn9u17c1z1" class="btn">720p Links [1.34GB]</a></li>
+          <li><a href="https://hubcloud.one/drive/k7k5djvp0daaooh" class="btn">1080p 10Bit HEVC [2.96GB]</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="copyright-container">
+      <h2>Copyright Notice</h2>
+      <p>© 2025 <strong>ZifahsFilm</strong>. All Rights Reserved.</p>
+      <p>
+        All content on this website, including but not limited to text, images, videos, design, and logos, 
+        is the property of <strong>ZifahsFilm</strong> or its respective content providers and is protected by copyright laws. 
+        Unauthorized reproduction, distribution, or use of any material from this website without explicit permission is strictly prohibited.
+      </p>
+      <p>
+        If you believe that your copyrighted work has been used on this website without authorization, please contact us at:
+      </p>
+      <p>
+        📧 <strong>Email:</strong> <a href="mailto:zifahsacc@gmail.com">zifahsacc@gmail.com</a><br>
+        📞 <strong>Phone:</strong> +7228878288
+      </p>
+      <p>
+        We take copyright infringement seriously and will promptly address any valid claims in accordance with applicable laws.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    ScrollReveal().reveal('.movie-title', { delay: 200, origin: 'bottom', distance: '30px', reset:true });
+    ScrollReveal().reveal('.movie-poster', { delay: 300, origin: 'bottom', distance: '40px', reset:true });
+    ScrollReveal().reveal('.movie-details', { delay: 350, origin: 'bottom', distance: '60px', reset:true });
+    ScrollReveal().reveal('.trialer', { delay: 400, origin: 'bottom', distance: '40px', reset:true });
+    ScrollReveal().reveal('.screenshots img', { interval: 200, origin: 'bottom', distance: '30px', reset:true });
+    ScrollReveal().reveal('.btn', { interval: 200, origin: 'bottom', distance: '30px', reset:true });
+    ScrollReveal().reveal('.copyright-container', { delay: 500, origin: 'bottom', distance: '40px', reset:true });
+    ScrollReveal().reveal('.logo', {
+      distance: '0px',
+      duration: 1200,
+      opacity: 0,
+      delay: 0,
+      reset:true,
+    });
+  </script>
+</body>
+</html>

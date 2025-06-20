@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Movies & Series Categories</title>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+       body{
+        display: flex;
+       min-height: 100hv;
+        justify-content: center;
+        align-items: center;
+        background-color: #141414;
+        flex-direction: column;
+        
+    }
+                                       .hero
+                                        {
+                                            width: 100%;
+                                            height: 1vh;
+                                            background-position: center;
+                                            background-size: cover;
+                                            
+                                        }
+                                                                    /* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px; /* more horizontal space */
+    background-color: black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 60px; /* reduce bottom margin if needed */
+}
+
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+
+.logo img {
+    width: 220px; /* increase size */
+    height: auto; /* maintain aspect ratio */
+    margin-right: 10px; /* reduce gap from search bar */
+    object-fit: contain; /* ensure full image shows */
+    
+}
+@media (max-width: 768px) {
+    .logo img {
+        width: 400px;
+        margin-right: 20px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+
+
+/* Navbar Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fa0202; /* Light Gray on Hover */
+}
+
+/* Search Bar (Modern Circular) */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #222;
+    border-radius: 50px; /* Circular Shape */
+    padding: 5px;
+    overflow: hidden;
+    border: 1px solid #444;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+    width: 200px;
+}
+
+.search-bar button {
+    border: none;
+    background: transparent;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Modern Search Icon */
+.search-bar button svg {
+    width: 20px;
+    height: 20px;
+    fill: #E50914; /* Netflix Red */
+    transition: 0.3s;
+}
+
+.search-bar button:hover svg {
+    fill: #B30000; /* Darker Red on Hover */
+}
+
+/* Mobile Menu */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: black;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+}
+a {
+  text-decoration: none;
+}
+
+/* === Common Styles === */
+.container, .container2, .container3, .container4, .container5, .container6, .container7, .container8,.container9,.container10,.container11,.container12 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.movie-card, .movie2-card, .movie3-card, .movie4-card, .movie5-card, .movie6-card, .movie7-card, .movie8-card,.movie9-card,.movie10-card,.movie11-card,.movie12-card {
+    background-color: #111;
+    width: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+    opacity: 1  ; /* Optional - ScrollReveal overrides this */
+  transition: transform 0.3s ease;
+}
+
+
+
+.movie-card img, .movie2-card img, .movie3-card img, .movie4-card img, .movie5-card img, .movie6-card img, .movie7-card img, .movie8-card img,.movie9-card img,.movie10-card img ,.movie11-card img ,.movie12-card img  {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.movie-info, .movie2-info, .movie3-info, .movie4-info, .movie5-info ,.movie6-info, .movie7-info,.movie8-info ,.movie9-info,.movie10-info,.movie11-info,.movie12-info {
+    padding: 10px;
+}
+
+.movie-info h3, .movie2-info h3, .movie3-info h3, .movie4-info h3, .movie5-info h3,.movie6-info h3,.movie7-info h3,.movie8-info h3,.movie9-info h3,.movie10-info h3,.movie11-info h3,.movie12-info h3 {
+    font-size: 16px;
+    margin: 5px 0;
+    color: aliceblue;
+}
+
+.movie-info p, .movie2-info p, .movie3-info p, .movie4-info p, .movie5-info p ,.movie6-info p,.movie7-info p,.movie8-info p,.movie9-info p,.movie10-info p,.movie11-info p,.movie12-info p {
+    font-size: 15px;
+    color: #aaa;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+@media (max-width: 768px) {
+  .movie-card, .movie2-card, .movie3-card, .movie4-card, .movie5-card, 
+  .movie6-card, .movie7-card, .movie8-card, .movie9-card, 
+  .movie10-card, .movie11-card, .movie12-card {
+    width: calc(50% - 15px); /* Two cards per row with 30px gap between them */
+  }
+}
+.container, .container2, .container3, .container4, .container5, 
+  .container6, .container7, .container8, .container9, 
+  .container10, .container11, .container12 {
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  
+
+
+        .copyright-container {
+    background-color: #111; /* Black background */
+    color: #fff; /* White text */
+    padding: 20px;
+    border-radius: 1px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    border: 2px solid red; /* Red border */
+}
+
+.copyright-container h2 {
+    color: red; /* Red heading */
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.copyright-container p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.copyright-container a {
+    color: red; /* Red links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.copyright-container a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="hero">
+        <nav class="navbar">
+           <div class="logo">
+    <img src="logo11.png" alt="ZifahsFilm Logo">
+</div>
+
+    
+            <div class="search-bar">
+                <input type="text" placeholder="Search movies..." id="searchInput">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 17 9.5 6.5 6.5 0 1 0 9.5 16a6.471 6.471 0 0 0 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zM9.5 14A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/>
+                    </svg>
+                </button>
+            </div>
+            
+    
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="catagories.html">Categories</a></li>
+                <li><a href="#">Contact</a></li>
+                <li> <a href="#">How to download?</a></li>
+            </ul>
+    
+            <div class="menu-toggle">&#9776;</div>
+        </nav>
+<div class="container">
+            <div class="movie-card">
+                                    <a href="moana2-page.html"><img src="movies-poster/moana2.jpeg" alt="moana2">
+                    <div class="movie-info">
+                            <h3>Moana 2 (2024)</h3>
+                           <p>Family/Adventure runtime-1h 40m imdb-6.9/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                    </div>
+                    </a>
+            </div>
+    
+            <div class="movie-card">
+                                  <a href="mufasa the lion king-page.html">   <img src="movies-poster/mufasa.jpg" alt="mufasa">
+                    <div class="movie-info">
+                            <h3>Mufasa the lion king (2024)</h3>
+                            <p>Adventure/Musica runtime-2h imdb-6.7/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                    </div>
+                                  </a>
+            </div>
+    
+            <div class="movie-card">
+                                   <a href="fightclubpage.html">  <img src="movies-poster/fightclub.jpg" alt="figth club">                  
+                                     <div class="movie-info">
+                            <h3>Fight Club (1999)</h3>
+                            <p>Action/Crime runtime-2h 19m imdb-8.8/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                    </div>
+                    </a>
+            </div>
+    
+            <div class="movie-card">
+                                   <a href="thebatman-page.html"><img src="movies-poster/batman.jpg" alt="batman">
+                <div class="movie-info">
+                            <h3>The Batman (2022)</h3>
+                            <p>Action/Crime runtime-2h 56m imdb-7.8/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>
+</div>
+        
+<div class="container2">
+            <div class="movie2-card">
+                               <a href="pushpa2-page.html">  <img src="movies-poster/pushpa2.jpg" alt="pushpa2">
+                <div class="movie2-info">
+                            <h3>Pushpa 2: The Rule (2024)</h3>
+                            <p>Action/Thriller runtime-3h 15m imdb-6.3/10 [Hindi & Telugu] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>
+    
+            <div class="movie2-card">
+                                  <a href="spiderman no way home-page.html"> <img src="movies-poster/spiderman4.jpg" alt="spiderman4">
+                <div class="movie2-info">
+                            <h3>Spider-Man: No Way Home (2021)</h3>
+                            <p>Action/Sci-fi runtime-2h 28m imdb-8.2/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>
+     
+            <div class="movie2-card">
+                                 <a href="avengers endgame -page.html"><img src="movies-poster/endgame.jpg" alt="endgame">
+                <div class="movie2-info">
+                            <h3>Avengers: Endgame (2019)</h3>
+                            <p>Action/Sci-fi runtime-3h 1m imdb-8.4/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>
+    
+            <div class="movie2-card">
+                                   <a href="deadpool&wolverine - page.html"> <img src="movies-poster/deadpool&wolverine.jpg" alt="deadpool&wolverine">
+                <div class="movie2-info">
+                            <h3>Deadpool & Wolverine (2024)</h3>
+                            <p>Action/Comedy runtime-2h 7m imdb-7.6/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>
+
+    </div>
+
+    
+    <div class="container3">
+        <div class="movie3-card">
+                             <a href="shiddat-page.html"><img src="movies-poster/shiddat.jpg" alt="shiddat">
+            <div class="movie3-info">
+                        <h3>Shiddat (2021)</h3>
+                        <p>Romance/Drama runtime-2h 26m imdb-7.6/10 [Hindi] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+            </div>
+            </a>
+        </div>
+
+        <div class="movie3-card">
+                              <a href="avengers infinity war-page.html"><img src="movies-poster/infinitywar.jpg" alt="infinitywar">
+            <div class="movie3-info">
+                        <h3>Avengers: Infinity War (2018)</h3>
+                        <p>Action/Sci-fi runtime-2h 29m imdb-8.4/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+            </div>
+            </a>
+        </div>
+ 
+        <div class="movie3-card">
+                            <a href="kalki 2898 ad - page.html"  ><img src="movies-poster/Kalki.jpg" alt="Kalki">
+            <div class="movie3-info">
+                        <h3>Kalki 2898 AD (2024)</h3>
+                        <p>Action/Sci-fi runtime-3h 1m imdb-7/10 [Hindi & Telugu] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+            </div>
+            </a>
+        </div>
+
+        <div class="movie3-card">
+                            <a href="Hridayam - page.html">   <img src="movies-poster/hridayam.jpg" alt="hridayam">
+            <div class="movie3-info">
+                        <h3>Hridayam (2022)</h3>
+                        <p>Romance/Drama runtime-2h 51m imdb-8.1/10 [Hindi & Malayalam] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+            </div>
+            </a>
+        </div>
+    </div>
+        <div class="container4">
+            <div class="movie4-card">
+                                <a href="captain america the first avenger - page.html">  <img src="movies-poster/CaptainAmerica1.jpg" alt="CaptainAmerica1">
+                <div class="movie4-info">
+                            <h3>Captain America: The First Avenger (2011)</h3>
+                            <p>Action/Sci-fi runtime-2h 4m imdb-6.9/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>
+    
+            <div class="movie4-card">
+                                <a href="animal - page.html">   <img src="movies-poster/Animal.jpg" alt="Animal">
+                <div class="movie4-info">
+                            <h3>Animal (2023)</h3>
+                            <p>Action/Crime runtime-3h 21m imdb-6.1/10 [Hindi] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>
+     
+            <div class="movie4-card">
+                                 <a href="KGF 2 - page.html">   <img src="movies-poster/kgf2.jpg" alt="kgf2">
+                <div class="movie4-info">
+                            <h3>KGF: Chapter 2 (2022)</h3>
+                            <p>Action/Crime runtime-2h 48m imdb-8.2/10 [Hindi] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+
+                </div>
+                </a>
+            </div>
+    
+            <div class="movie4-card">
+                           <a href="iron man - page.html">     <img src="movies-poster/ironman1.jpg" alt="ironman1">
+                <div class="movie4-info">
+                            <h3>Iron Man (2008)</h3>
+                            <p>Action/Sci-fi runtime-2h 6m imdb-7.9/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>            
+</div>
+
+<div class="container5">
+            <div class="movie5-card">
+                                  <a href="avengers age of ultron - page.html" >  <img src="movies-poster/avengers2.jpg" alt="avengers2">
+                    <div class="movie5-info">
+                            <h3>Avengers: Age of Ultron (2015)</h3>
+                            <p> Action/Sci-fi runtime-2h 21m imdb-7.3/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                    </div>
+                    </a>
+            </div>
+    
+            <div class="movie5-card">
+                                 <a href="dune 2 - page.html">    <img src="movies-poster/Dune2.jpg" alt="Dune2">
+                    <div class="movie5-info">
+                            <h3>Dune: Part Two (2024)</h3>
+                            <p>Sci-fi/Adventure runtime-2h 46imdb-8.5/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                    </div>
+                    </a>
+            </div>
+    
+            <div class="movie5-card">
+                                   <a href="uncharted - page.html">  <img src="movies-poster/Uncharted.jpg" alt="Uncharted">
+                    <div class="movie5-info">
+                            <h3>Uncharted (2022)</h3>
+                            <p>Action/Adventure runtime-1h 56m imdb-6.3/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                    </div>
+                    </a>
+            </div>
+    
+            <div class="movie5-card">
+                                  <a href="thor regnarok - page.html">  <img src="movies-poster/thor ragnarok.jpg" alt="thor ragnarok">
+                <div class="movie5-info">
+                            <h3>Thor: Ragnarok (2017)</h3>
+                            <p>Action/Sci-fi runtime-2h 10m imdb-7.9/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>
+</div>
+<div class="container6">
+            <div class="movie6-card">
+                                  <a href="jumanji welcome to the jungel - page.html">  <img src="movies-poster/Jumanji.jpg" alt="Jumanji">
+                <div class="movie6-info">
+                            <h3>Jumanji: Welcome to the Jungle (2017)</h3>
+                            <p>Action/Adventure runtime-1h 49m imdb-7/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>
+    
+            <div class="movie6-card">
+                                <a href="iron man - page.html">    <img src="movies-poster/Iron Man.jpg" alt="ironman">
+                <div class="movie6-info">
+                            <h3>Iron Man (2008)</h3>
+                            <p>Action/Sci-fi runtime-2h 6m imdb-7.9/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>
+     
+            <div class="movie6-card">
+                                 <a href="black widow - page.html">   <img src="movies-poster/black widow.jpg" alt="black widow">
+                <div class="movie6-info">
+                            <h3>Black Widow (2021)</h3>
+                            <p>Action/Sci-fi runtime-2h 13m imdb-6.6/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>
+    
+            <div class="movie6-card">
+                               <a href="barfi - page.html">     <img src="movies-poster/barfi.jpg" alt="barfi">
+                <div class="movie6-info">
+                            <h3>Barfi! (2012)</h3>
+                            <p>Romance/Comedy runtime-2h 31m imdb-8.1/10 [Hindi] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>
+
+    </div>
+    
+    <div class="container7">
+        <div class="movie7-card">
+                             <a href="joker - page.html">   <img src="movies-poster/joker.jpg" alt="joker">
+            <div class="movie7-info">
+                        <h3>Joker (2019)</h3>
+                        <p>Thriller/Crime runtime-2h 2m imdb-8.3/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+            </div>
+            </a>
+        </div>
+
+        <div class="movie7-card">
+                           <a href="bahubali 2 - page.html">     <img src="movies-poster/Bahubali2.jpg" alt="Bahubali2">
+            <div class="movie7-info">
+                        <h3>Baahubali 2: The Conclusion (2017)</h3>
+                        <p>Action/Fantasy runtime-2h 47m imdb-8.2/10 [Hindi] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+            </div>
+            </a>
+        </div>
+ 
+        <div class="movie7-card">
+                             <a href="guardians of the galaxy - page.html">   <img src="movies-poster/gotg1.jpg" alt="gotg1">
+            <div class="movie7-info">
+                        <h3>Guardians of the Galaxy (2014)</h3>
+                        <p>Action/Sci-fi runtime-2h 21m imdb-8/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+            </div>
+            </a>
+        </div>
+
+        <div class="movie7-card">
+                               <a href="spiderman across the spider verse - page.html"> <img src="movies-poster/spiderman across the spider-verse.jpg" alt="spiderman across the spider-verse">
+            <div class="movie7-info">
+                        <h3>Spider-Man: Across the Spider-Verse (2023)</h3>
+                        <p>Action/Sci-fi runtime-2h 20m imdb-8.5/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+            </div>
+            </a>
+        </div>
+        </div>
+          <div class="container8">
+            <div class="movie8-card">
+                              <a href="pk - page.html">     <img src="movies-poster/PK .jpg" alt="PK">
+                <div class="movie8-info">
+                    <h3>PK (2014)</h3>
+                            <p>Comedy/Fantasy runtime-2h 32m imdb-8.1/10 [Hindi] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>
+    
+            <div class="movie8-card">
+                               <a href="the mask hero to zero - page.html">     <img src="movies-poster/The Mask.jpg" alt="the Mask">
+                <div class="movie8-info">
+                            <h3>The Mask (1994)</h3>
+                            <p>Comedy/Action runtime-1h 41m imdb-7/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>
+     
+            <div class="movie8-card">
+                                 <a href="shang-chi and the legend ten rings -page.html">   <img src="movies-poster/shang-chi.jpg" alt="shang-chi">
+                <div class="movie8-info">
+                            <h3>Shang-Chi and the Legend of the Ten Rings (2021)</h3>
+                            <p>Action/Adventure runtime-2h 12m imdb-7.3/10 [Hindi & English] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>
+    
+            <div class="movie8-card">
+                                <a href="sholay - page.html">    <img src="movies-poster/Sholay.jpg" alt="Sholay">
+                <div class="movie8-info">
+                            <h3>Sholay (1975)</h3>
+                            <p>Action/Sci-fi runtime-2h 6m imdb-8.1/10 [Hindi] 1080p 720p & 480p| Full Movie [Exclusive-By-zifasflim]</p>
+                </div>
+                </a>
+            </div>            
+</div>
+<div class="container9">
+    <div class="movie9-card">
+      <a href="the godfather -page.html"> <img src="movies-poster/The Godfather.jpg" alt="The Godfather">
+        <div class="movie9-info">
+            <h3>The Godfather (1972)</h3>
+            <p>Crime/Drama runtime-2h 55m IMDb-9.2/10 [English] 1080p 720p & 480p | Full Movie [Exclusive-By-zifasflim]</p>
+        </div>
+        </a>
+    </div>
+
+    <div class="movie9-card">
+       <a href="dune  - page.html"> <img src="movies-poster/dune.jpg" alt="Dune">
+        <div class="movie9-info">
+            <h3>Dune (2021)</h3>
+            <p>Sci-fi/Adventure runtime-2h 35m IMDb-8.0/10 [Hindi & English] 1080p 720p & 480p | Full Movie [Exclusive-By-zifasflim]</p>
+        </div>
+        </a>
+    </div>
+
+    <div class="movie9-card">
+       <a href ="jigra - page.html"> <img src="movies-poster/jigra.jpg" alt="Jigra">
+        <div class="movie9-info">
+            <h3>Jigra (2024)</h3>
+            <p>Drama runtime-TBD IMDb-TBD [Hindi] 1080p 720p & 480p | Full Movie [Exclusive-By-zifasflim]</p>
+        </div>
+        </a>
+    </div>
+
+    <div class="movie9-card">
+       <a href="cars 1 -page.html"> <img src="movies-poster/cars.jpg" alt="Cars">
+        <div class="movie9-info">
+            <h3>Cars (2006)</h3>
+            <p>Animation/Adventure runtime-1h 57m IMDb-7.2/10 [Hindi & English] 1080p 720p & 480p | Full Movie [Exclusive-By-zifasflim]</p>
+        </div>
+        </a>
+    </div>
+</div>
+
+<div class="container10">
+    <div class="movie10-card">
+       <a href = "spider man into the spider verse - page .html"> <img src="movies-poster/spiderman into the spider-verse.jpg" alt="Spider-Man: Into the Spider-Verse">
+        <div class="movie10-info">
+            <h3>Spider-Man: Into the Spider-Verse (2018)</h3>
+            <p>Animation/Action runtime-1h 57m IMDb-8.4/10 [Hindi & English] 1080p 720p & 480p | Full Movie [Exclusive-By-zifasflim]</p>
+        </div>
+        </a>    
+    </div>
+
+    <div class="movie10-card">
+        <a href ="maharaja - page.html"><img src="movies-poster/Maharaja.jpg" alt="Maharaja">
+        <div class="movie10-info">
+            <h3>Maharaja (2024)</h3>
+            <p>Action/Drama runtime-TBD IMDb-TBD [Hindi] 1080p 720p & 480p | Full Movie [Exclusive-By-zifasflim]</p>
+        </div>
+        </a>
+    </div>
+
+    <div class="movie10-card">
+       <a href="cars 2 - page.html"> <img src="movies-poster/cars2.jpg" alt="Cars 2">
+        <div class="movie10-info">
+            <h3>Cars 2 (2011)</h3>
+            <p>Animation/Comedy runtime-1h 46m IMDb-6.2/10 [Hindi & English] 1080p 720p & 480p | Full Movie [Exclusive-By-zifasflim]</p>
+        </div>
+        </a>
+    </div>
+
+    <div class="movie10-card">
+        <a href="pathaan - page.html"><img src="movies-poster/Pathaan.jpg" alt="Pathaan">
+        <div class="movie10-info">
+            <h3>Pathaan (2023)</h3>
+            <p>Action/Thriller runtime-2h 26m IMDb-5.9/10 [Hindi] 1080p 720p & 480p | Full Movie [Exclusive-By-zifasflim]</p>
+        </div>
+    </div>
+</a>
+</div>
+
+<div class="container11">
+    <div class="movie11-card">
+       <a href="RRR - page.html"> <img src="movies-poster/RRR.jpg" alt="RRR">
+        <div class="movie11-info">
+            <h3>RRR (2022)</h3>
+            <p>Action/Drama runtime-3h 2m IMDb-7.9/10 [Hindi] 1080p 720p & 480p | Full Movie [Exclusive-By-zifasflim]</p>
+        </div>
+        </a>
+    </div>
+
+    <div class="movie11-card">
+       <a href="wall e - page.html"> <img src="movies-poster/wall e.jpg" alt="WALL-E">
+        <div class="movie11-info">
+            <h3>WALL·E (2008)</h3>
+            <p>Animation/Sci-fi runtime-1h 38m IMDb-8.4/10 [Hindi & English] 1080p 720p & 480p | Full Movie [Exclusive-By-zifasflim]</p>
+        </div>
+        </a>
+    </div>
+
+    <div class="movie11-card">
+       <a href="Yeh Jawaani Hai Deewani - page.html"> <img src="movies-poster/Yeh Jawaani Hai Deewani.jpg" alt="Yeh Jawaani Hai Deewani">
+        <div class="movie11-info">
+            <h3>Yeh Jawaani Hai Deewani (2013)</h3>
+            <p>Romance/Drama runtime-2h 40m IMDb-7.2/10 [Hindi] 1080p 720p & 480p | Full Movie [Exclusive-By-zifasflim]</p>
+        </div>
+        </a>
+    </div>
+
+    <div class="movie11-card">
+     <a href="doctor strenge 2 - page.html">   <img src="movies-poster/doctor strange multuverse of madaness.jpg" alt="Doctor Strange in the Multiverse of Madness">
+        <div class="movie11-info">
+            <h3>Doctor Strange in the Multiverse of Madness (2022)</h3>
+            <p>Action/Fantasy runtime-2h 6m IMDb-6.9/10 [Hindi & English] 1080p 720p & 480p | Full Movie [Exclusive-By-zifasflim]</p>
+        </div>
+        </a>
+    </div>
+</div>
+<div class="container12">
+    <div class="movie12-card">
+        <a href="https://bollyflix.tw/solo-leveling-season-1-multi-audio-hindi-english-japanese-web-series/"><img src="movies-poster/sololevling.jpg" alt="Solo Leveling">
+        <div class="movie12-info">
+            <h3>Solo Leveling (2024)</h3>
+            <p>Action/Fantasy runtime-24m per ep IMDb-8.5/10 [Hindi & Japanese] 1080p 720p & 480p | Full Series [Exclusive-By-zifasflim]</p>
+        </div>
+        </a>
+    </div>
+
+    <div class="movie12-card">
+       <a href="Kingdom of the Planet of the Apes (2024) - page.html"> <img src="movies-poster/kingdom of the planet of the apes.jpg" alt="Kingdom of the Planet of the Apes">
+        <div class="movie12-info">
+            <h3>Kingdom of the Planet of the Apes (2024)</h3>
+            <p>Action/Sci-Fi runtime-2h 25m IMDb-7.2/10 [Hindi & English] 1080p 720p & 480p | Full Movie [Exclusive-By-zifasflim]</p>
+        </div>
+        </a>
+    </div>
+
+    <div class="movie12-card">
+       <a href="ant man - page.html" ><img src="movies-poster/Ant-Man .jpg" alt="Ant-Man">
+        <div class="movie12-info">
+            <h3>Ant-Man (2015)</h3>
+            <p>Action/Adventure runtime-1h 57m IMDb-7.3/10 [Hindi & English] 1080p 720p & 480p | Full Movie [Exclusive-By-zifasflim]</p>
+        </div>
+        </a>
+    </div>
+
+    <div class="movie12-card">
+       <a href="Terrifier - page.html"> <img src="movies-poster/terrifier.jpeg" alt="Terrifier">
+        <div class="movie12-info">
+            <h3>Terrifier (2016)</h3>
+            <p>Horror/Thriller runtime-1h 22m IMDb-5.6/10 [English] 1080p 720p & 480p | Full Movie [Exclusive-By-zifasflim]</p>
+        </div>
+        </a>
+    </div>
+</div>
+
+
+<div class="copyright-container">
+    <h2>Copyright Notice</h2>
+    <p>© 2025 <strong>ZifahsFilm</strong>. All Rights Reserved.</p>
+    <p>
+        All content on this website, including but not limited to text, images, videos, design, and logos, 
+        is the property of <strong>ZifahsFilm</strong> or its respective content providers and is protected by copyright laws. 
+        Unauthorized reproduction, distribution, or use of any material from this website without explicit permission is strictly prohibited.
+    </p>
+    <p>
+        If you believe that your copyrighted work has been used on this website without authorization, please contact us at:
+    </p>
+    <p>
+        📧 <strong>Email:</strong> <a href="mailto:zifahsacc@gmail.com">zifahsacc@gmail.com</a><br>
+        📞 <strong>Phone:</strong> +7228878288
+    </p>
+    <p>
+        We take copyright infringement seriously and will promptly address any valid claims in accordance with applicable laws.
+    </p>
+</div>
+<script>
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    
+    // Listen for user input
+    searchInput.addEventListener('input', function() {
+        const filter = searchInput.value.toLowerCase();
+        const allMovieCards = document.querySelectorAll('.movie-card, .movie2-card, .movie3-card, .movie4-card, .movie5-card,.movie6-card,.movie7-card,.movie8-card,.movie9-card,.movie10-card,.movie11-card,.movie12-card');
+    
+        allMovieCards.forEach(card => {
+            const title = card.querySelector('h3').innerText.toLowerCase();
+            if (title.includes(filter)) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+    
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+   
+
+
+
+  ScrollReveal().reveal('.movie-card ,.movie2-card,.movie3-card,.movie4-card,.movie5-card,.movie6-card,.movie7-card,.movie8-card,.movie9-card,.movie10-card,.movie11-card,.movie12-card', {
+    origin: 'bottom',
+    distance: '50px',
+    duration: 1100  ,
+    interval: 75,
+    reset: true
+  });
+
+  //logo fade in effect zifahsflim for lodu 
+    ScrollReveal().reveal('.logo', {
+  distance: '0px',  // no movement
+  duration: 1200,   // animation duration in ms
+  opacity: 0,       // start fully transparent
+  delay: 0,
+  reset:true,
+});
+</script>
+
+</body>
+</html>

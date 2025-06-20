@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Incredible Hulk (2008) | ZifahsFilm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <style>
+    /* RESET + BODY */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background-color: #141414;
+      flex-direction: column;
+    }
+
+    .hero {
+      width: 100%;
+      height: auto;
+      background-position: center;
+      background-size: cover;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: black;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      margin-bottom: 60px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 220px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: #222;
+      border-radius: 50px;
+      padding: 5px;
+      border: 1px solid #444;
+    }
+
+    .search-bar input {
+      border: none;
+      outline: none;
+      padding: 10px 15px;
+      background: transparent;
+      color: white;
+      font-size: 1rem;
+      width: 200px;
+    }
+
+    .search-bar button {
+      border: none;
+      background: transparent;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .search-bar button svg {
+      width: 20px;
+      height: 20px;
+      fill: #E50914;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    .nav-links a:hover {
+      color: #fa0202;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .logo img {
+        width: 400px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: black;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .search-bar {
+        width: 100%;
+      }
+
+      .search-bar input {
+        width: 100%;
+      }
+    }
+
+    /* MOVIE SECTION */
+    .movie-containerall {
+      width: 90%;
+      max-width: 800px;
+      margin: auto;
+      background: linear-gradient(135deg, #dcedc8, #ffffff);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(139, 195, 74, 0.4);
+    }
+
+    .movie-title {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      background: linear-gradient(to right, #689f38, #1b5e20);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: 'Pacifico', cursive;
+    }
+
+    .movie-poster {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      margin: auto;
+      display: block;
+      box-shadow: 0 6px 12px rgba(85, 139, 47, 0.3);
+    }
+
+    .movie-details {
+      color: #2e7d32;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      background-color: #f1f8e9;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #33691e;
+    }
+
+    h1 {
+      color: #1b5e20;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+    }
+
+    h1:hover {
+      color: #66bb6a;
+    }
+
+    .screenshots {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .screenshots img {
+      width: 300px;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0, 105, 92, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .screenshots img:hover {
+      transform: scale(1.08);
+    }
+
+    .container {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    ol {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 30px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 250px;
+      background: linear-gradient(45deg, #33691e, #76ff03);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(56, 142, 60, 0.4);
+    }
+
+    .btn:hover {
+      background: linear-gradient(45deg, #1b5e20, #aeea00);
+      transform: translateY(-4px);
+    }
+
+    .trialer {
+      text-align: center;
+    }
+
+    hr {
+      border: 2px solid rgb(139, 195, 74);
+      width: 90%;
+      margin: 20px auto;
+    }
+
+    .copyright-container {
+      background-color: #111;
+      color: #fff;
+      padding: 20px;
+      border-radius: 1px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      border: 2px solid red;
+      margin-top: 100px;
+    }
+
+    .copyright-container h2 {
+      color: red;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo11.png" alt="ZifahsFilm Logo">
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search movies..." id="searchInput">
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 17 9.5 
+            6.5 6.5 0 1 0 9.5 16a6.471 6.471 0 0 0 
+            4.23-1.57l.27.28v.79l5 4.99L20.49 
+            19l-4.99-5zM9.5 14A4.5 4.5 0 1 1 
+            14 9.5 4.5 4.5 0 0 1 9.5 14z"/>
+          </svg>
+        </button>
+      </div>
+      <ul class="nav-links">
+        <li><a href="zifahflim.html">Home</a></li>
+        <li><a href="catagories.html">Categories</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">How to download?</a></li>
+      </ul>
+      <div class="menu-toggle">&#9776;</div>
+    </nav>
+
+    <div class="movie-containerall">
+      <div class="movie-title">The Incredible Hulk (2008)</div>
+      <img class="movie-poster" src="movies-poster/The Incredible Hulk .jpg" alt="Hulk Poster">
+      <hr>
+      <div class="movie-details">
+        <h1>Details</h1>
+        <p><label>Directed by :</label> Louis Leterrier</p>
+        <p><label>Written by :</label> Zak Penn</p>
+        <p><label>Language :</label> (dual) English & Hindi</p>
+        <p><label>Quality :</label> 480p | 720p | 1080p</p>
+        <p><label>Released Date :</label> 2008</p>
+        <p><label>Cast :</label> Edward Norton, Liv Tyler, Tim Roth, William Hurt</p>
+        <p><label>Budget :</label> $150 million</p>
+        <p><label>Box Office :</label> $264.8 million</p>
+        <p><label>Story :</label> Bruce Banner seeks a cure for his gamma radiation condition that turns him into the Hulk. Hunted by the military, Banner must avoid capture and confront a new powerful adversary: The Abomination.</p>
+      </div>
+      <hr>
+      <h1>Trailer</h1>
+      <div class="trialer">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/xbqNb2PFKKA" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <hr>
+      <h1>Screen-Shots</h1>
+      <div class="screenshots">
+        <img src="moviesscreenshot/hulk ss1.jpg" alt="Screenshot 1">
+        <img src="moviesscreenshot/hulk ss2.jpg" alt="Screenshot 2">
+        <img src="moviesscreenshot/hulk ss3.jpg" alt="Screenshot 3">
+        <img src="moviesscreenshot/hulk ss4.jpg" alt="Screenshot 4">
+      </div>
+      <hr>
+      <h1>Download Link</h1>
+      <div class="container">
+        <ol>
+          <li><a href="480p - page.html" class="btn">480p Links [500MB]</a></li>
+          <li><a href="https://hubcloud.one/drive/1cicmdimqyycmm2" class="btn">720p Links [1.6GB]</a></li>
+          <li><a href="https://hubcloud.one/drive/wunumuimm5qum51" class="btn">1080p Links [2.34GB]</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="copyright-container">
+      <h2>Copyright Notice</h2>
+      <p>© 2025 <strong>ZifahsFilm</strong>. All Rights Reserved.</p>
+      <p>All content on this website... (unchanged)</p>
+      <p>📧 <strong>Email:</strong> <a href="mailto:zifahsacc@gmail.com">zifahsacc@gmail.com</a><br>
+         📞 <strong>Phone:</strong> +7228878288</p>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    ScrollReveal().reveal('.movie-title', { delay: 200, origin: 'bottom', distance: '30px', reset: true });
+    ScrollReveal().reveal('.movie-poster', { delay: 300, origin: 'bottom', distance: '40px', reset: true });
+    ScrollReveal().reveal('.movie-details', { delay: 350, origin: 'bottom', distance: '60px', reset: true });
+    ScrollReveal().reveal('.trialer', { delay: 400, origin: 'bottom', distance: '40px', reset: true });
+    ScrollReveal().reveal('.screenshots img', { interval: 200, origin: 'bottom', distance: '30px', reset: true });
+    ScrollReveal().reveal('.btn', { interval: 200, origin: 'bottom', distance: '30px', reset: true });
+    ScrollReveal().reveal('.copyright-container', { delay: 500, origin: 'bottom', distance: '40px', reset: true });
+    ScrollReveal().reveal('.logo', { distance: '0px', duration: 1200, opacity: 0, delay: 0, reset: true });
+  </script>
+</body>
+</html>

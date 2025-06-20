@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is for 480p link</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1e1e1e;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 5rem;
+            color: #ff5555;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #cccccc;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .blink {
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #ffaaaa;
+            animation: blink 1s step-start infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        button {
+            margin-top: 40px;
+            padding: 12px 25px;
+            border: none;
+            background-color: #ff5555;
+            color: white;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff2222;
+        }
+    </style>
+</head>
+<body>
+    <h1>Error 404</h1>
+    <p>Only 720p and 1080p are available.<br>480p link not found.</p>
+    <div class="blink">Please check back later or use available qualities.</div>
+    <button onclick="goBack()">Go Back</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        // Optional: Auto fade-in message after a few seconds
+        setTimeout(() => {
+            const message = document.createElement('p');
+            message.innerText = 'If you think this is a mistake, contact the admin.';
+            message.style.color = '#999';
+            message.style.marginTop = '20px';
+            document.body.appendChild(message);
+        }, 4000);
+    </script>
+</body>
+</html>
